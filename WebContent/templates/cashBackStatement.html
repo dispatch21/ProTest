@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<style>
+html,body, .wrapper{
+	width:100%;
+	height:100%;
+	margin:0;
+	padding:0;
+}
+ul, li{
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+.table{
+	display: table;
+	font-size: 11px;
+	width:100%;
+	 font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	     padding-top: 1%;
+}
+.table>ul{
+	display: table-row;
+	width:100%;
+	
+}
+.table>ul>li{
+	display:table-cell;
+	    text-align: left;
+	        vertical-align: middle;
+	        width:11%;
+	        height:26px;
+}
+
+table
+{
+	font-size: 11px;
+	width:100%;
+	 font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	     padding-top: 1%;
+	     border-collapse: collapse;
+}
+table tr
+{
+	width:100%;
+}
+table tr td , table tr th
+{
+	 text-align: left;
+	        vertical-align: middle;
+	        width:10%;
+	        height:28px;
+}
+ .alignBottom
+{
+	 vertical-align: bottom;
+}
+.head{
+	
+	color: #000000;
+}
+.head li
+{
+    border-bottom: 1px solid black;
+}
+.head th
+{
+    border-bottom: 1px solid black;
+    font-weight:normal !important;
+        padding-bottom: 4px;
+	    padding-top: 6px;
+}
+.table>ul:nth-child(even){
+	background-color: #f9f9f9;
+}
+
+.headerText
+{
+      color: #FFFFFF;
+    font-size: 1.7em;
+    font-weight: bolder;
+    text-align: left;
+    line-height: 49px;
+    width:93%;
+}
+
+.mainHeader
+{
+	width: 100%;
+    background-color: #000000;
+    display: block;
+    min-height: 53px;
+}
+.even
+{
+	background-color:#F3F2F0;
+}
+.odd
+{
+	background-color:#FFFFFF;
+}
+.headerImage
+{
+	height: 53px;
+    float: left;
+    padding: 5px;
+    width:20%;
+}
+
+.totalSpend
+{
+	background: #F3F2F0;
+    width: 100%;
+    display: block;
+    position: relative;
+        margin-top: 0.7% !important;
+}
+
+.totalHeading
+{
+	
+       display: block;
+    clear: both;
+    text-align: left;
+    padding-left: 8px;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.cashBackEarned
+{
+	    display: block;
+    position: relative;
+    padding-top: 3%;
+    padding-bottom: 2%;
+    padding-left: 8px;
+    width: 100%;
+    height: auto;
+}
+.totalSpendHead
+{
+	display: inline-block;
+	width:35%;
+}
+.cashBackLevel
+{
+    display: inline-block;
+      width:25%;
+      padding-right:2%;
+ }
+ .totalEarned
+ {   
+           display: inline-block;
+           width:35%;
+ }
+ .cashBackValues
+ {
+ 	
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 25px;
+    vertical-align: middle;
+    text-align: center;
+   padding-left: 12px;
+   display: inline-block;
+ }  
+ 
+ .transactionsDateHeader
+ {
+ 	     display: block;
+    clear: both;
+    width: 100%;
+    text-align: left;
+    padding-top: 2px;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    background: #E6E5E1;
+      margin-top: 0.7% !important;
+ }  
+ .wrapper-contents-margin
+ {
+    margin-top: 0.3%;
+    margin-left: auto;
+    margin-right: auto;  
+  }
+  .data li div
+  {
+  	word-wrap: break-word;
+	word-break: break-all;
+  }
+ 
+
+.page-break
+{
+	page-break-after:always;
+}
+
+.pageNumber
+{
+	 font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	 font-size:12px;
+	 text-align:right;
+}
+.pageNumber_padding
+{
+	padding-top:1%;
+}
+.cashBackHeader
+{
+	font-size: 15px;
+	display: inline-block;
+}
+@page
+{
+	padding:20px;
+	margin:0;
+}
+</style>
+</head>
+<body>
+<#macro header>
+
+	<tr class="head">
+	<th class="alignBottom" style="width:9%;padding-left: 5px;">Sales Date</th>
+	<th class="alignBottom" style="width:9%;">Added Date</th>
+	<th class="alignBottom" style="width:9%;">Job Name</th>
+	<th class="alignBottom" style="width:10%;">Receipt #</th>
+	<th class="alignBottom" style="width:9%;">Pre Tax Amount</th>
+	<th class="alignBottom" style="width:9%;">Total <br/> Amount</th>
+	<th class="alignBottom" style="width:14%;">Store Name</th>
+	<th class="alignBottom" style="width:14%;">Credit Cards <br/>/ Accounts</th>
+	<th class="alignBottom" style="width:17%;">Card/Account Name</th>
+</tr>
+	
+
+
+</#macro>
+<div class="wrapper">
+<div class="mainHeader  wrapper-contents-margin">
+	<div class="headerImage">
+	        <img style="height: 77%;" src="${THDProLogo}"         	
+	        	alt="Home Depot ProXtra" />             
+	</div>
+	<div class="headerText">
+		<span>ProXtra Quarterly Cash Back Statement</span>
+	</div>
+</div>
+<div   class="totalSpend  wrapper-contents-margin">
+<div class="totalHeading">
+<#if calendarQuarter?? && calendarQuarter!= "">
+		<span style="font-size:19px;">
+			Totals - ${calendarQuarter}
+		</span>
+		<#else>
+		<span style="font-size:19px;">--</span>
+		</#if>
+	</div>
+	<div class="cashBackEarned" style="padding-left:1.1%;">
+		<div class="totalSpendHead">
+			
+			<span class="cashBackHeader"> Spend </span>
+			<#if spend?? && spend!= "">
+			<span class="cashBackValues">${spend}</span>
+			<#else>
+			<span class="cashBackValues">$0.00</span>
+			</#if>
+			
+		</div>
+		
+		<div class="cashBackLevel">
+		<span class="cashBackHeader"> Cash Back Level </span>
+		<#if cashBackLevel?? && cashBackLevel!= "">
+			<span class="cashBackValues"> ${cashBackLevel}%</span>
+			<#else>
+			<span class="cashBackValues"> 0%</span>
+			</#if>
+		
+		</div>
+		
+		<div class="totalEarned">
+			<span class="cashBackHeader"> Cash Back Earned </span>
+			<#if cashBackEarned?? && cashBackEarned!= "">
+			<span class="cashBackValues">${cashBackEarned } </span>
+			<#else>
+			<span class="cashBackValues">$0.00 </span>
+			</#if>
+		
+		</div>
+	
+	</div>
+</div>
+<div class="transactionsDateHeader  wrapper-contents-margin">
+<#if calendarQuarter?? && calendarQuarter!= "">
+<span style="font-size:1.1em;padding-left:5px;">Transactions Added ${calendarQuarter}</span>
+<#else>
+<span style="font-size:1.1em;padding-left:5px;">--</span>
+</#if>
+</div>
+<#assign page = 1>
+<#assign rowCount= 0 />	
+<#assign totalCount = 0 />
+<table class="table wrapper-contents-margin" style="margin-top:0;">
+
+<@header />
+				
+			<#list TransactionList as transactions>
+					<#assign rowCount = (rowCount + 1)>
+					<#assign totalCount = (totalCount + 1)>
+						<#assign rowClass = 'data odd'>
+						
+						<#if totalCount%2 == 0>
+							<#assign rowClass = 'data even'>
+							
+						</#if>
+						<#if page == 1>
+							<#if rowCount % 24== 0>
+								
+								<tr>
+										<td colspan="10" class="pageNumber">Page <span>${page}</span>
+										</td>
+									</tr>
+								<div class="page-break"></div>
+								<@header />
+								<#assign page = page+1>
+								<#assign rowCount = 0 >
+							</#if>
+							<#else>
+								<#if rowCount % 29== 0>
+									
+									<tr>
+										<td colspan="10" class="pageNumber">Page <span>${page}</span> 
+										</td>
+									</tr> 
+									<div class="page-break"></div>
+									<@header />
+									<#assign page = page+1>
+								</#if>
+						</#if>
+						
+						
+<tr class="${rowClass}">
+	<td style="width:9%;padding-left: 5px;">
+		
+		<div>${transactions.salesDateDisplay}</div>
+	</td>
+	<td style="width:9%;">
+		<#if transactions.receiptAddedDateDisplay?? && transactions.receiptAddedDateDisplay!= "">
+		<div>${transactions.receiptAddedDateDisplay}</div>
+		<#else>
+		<div>${transactions.salesDateDisplay}</div>
+		</#if>
+	</td>
+	<td style="width:9%;">
+		<#assign jobName = (transactions.jobNameDisplay!"")>
+		<#if jobName ? length &lt; 11>
+		<div>${jobName}</div>
+		<#else>
+		<div>${jobName?substring(0,10)}</div>
+		</#if>
+	</td>
+	<td style="width:10%;">
+		
+		<div>${transactions.receiptNumber}</div>
+	</td>
+	<td style="width:9%;">
+		
+		<div>${transactions.preTaxAmount}</div>
+	</td>
+	<td style="width:9%;">
+		<#if transactions.totalAmount?? && transactions.totalAmount!= "">
+		<div>${transactions.totalAmount}</div>
+		<#else>
+		<div>$0.00</div>
+		</#if>
+	</td>
+	<td style="width:14%;">
+		<#assign strName = (transactions.storeNameDisplay!"")>
+		<#if strName ?length &lt; 15>
+		<div>${strName}</div>
+		<#else>
+		<div>${strName?substring(0,14)}</div>
+		</#if>
+	</td>
+	<td style="width:14%;">
+		<#if transactions.accountNumberDisplay?? && transactions.accountNumberDisplay!= "">
+		<div>${transactions.accountNumberDisplay}</div>
+		<#else>
+		<div>&nbsp;</div>
+		</#if>
+	</td>
+	<td style="width:17%;">
+		<#assign acctName = (transactions.cardAccountNameDisplay!"")>
+		<#if acctName ? length &lt; 13>
+		<div>${acctName}</div>
+		<#else>
+		<div>${acctName?substring(0,12)}</div>
+		</#if>
+	</td>
+</tr>				
+
+</#list>
+</table>
+<#if page!=1>
+<div   class="totalSpend  wrapper-contents-margin" style="padding-top: 5px;">
+<div class="totalHeading">
+		<#if calendarQuarter?? && calendarQuarter!= "">
+		<span style="font-size:19px;">
+			Totals - ${calendarQuarter}
+		</span>
+		<#else>
+		<span style="font-size:19px;">--</span>
+		</#if>
+	</div>
+	<div class="cashBackEarned" style="padding-left:1.1%;padding-bottom:1%;">
+		
+		<div class="totalSpendHead">
+			
+			<span class="cashBackHeader"> Spend </span>
+			<#if spend?? && spend!= "">
+			<span class="cashBackValues">${spend}</span>
+			<#else>
+			<span class="cashBackValues">$0.00</span>
+			</#if>
+			
+		</div>
+		
+		<div class="cashBackLevel">
+		<span class="cashBackHeader"> Cash Back Level </span>
+		<#if cashBackLevel?? && cashBackLevel!= "">
+			<span class="cashBackValues"> ${cashBackLevel}%</span>
+			<#else>
+			<span class="cashBackValues"> 0%</span>
+			</#if>
+		
+		</div>
+		
+		<div class="totalEarned">
+			<span class="cashBackHeader"> Cash Back Earned </span>
+			<#if cashBackEarned?? && cashBackEarned!= "">
+			<span class="cashBackValues">${cashBackEarned } </span>
+			<#else>
+			<span class="cashBackValues">$0.00 </span>
+			</#if>
+		
+		</div>
+	
+	</div>
+</div></#if>
+<#if (rowCount + 24 == totalCount) || rowCount = totalCount || rowcount <=24>
+<div class="pageNumber pageNumber_padding">Page <span>${page}</span></div>
+
+</#if>
+</div>
+</body>
+</html>

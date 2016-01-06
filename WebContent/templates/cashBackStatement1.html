@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<style>
+html,body, .wrapper{
+	width:100%;
+	height:100%;
+	margin:0;
+	padding:0;
+}
+ul, li{
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+.table{
+	display: table;
+	font-size: 10px;
+	width:94%;
+	 font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+.table>ul{
+	display: table-row;
+	width:100%;
+	
+}
+.table>ul>li{
+	display:table-cell;
+	    text-align: left;
+	        vertical-align: middle;
+	        width:11%;
+}
+.table>ul>li label{
+	display: none;
+}
+.head{
+	
+	color: #000000;
+}
+.head li
+{
+    border-bottom: 1px solid black;
+}
+.table>ul:nth-child(even) , table tbody > tr:nth-child(even){
+	background-color: #f9f9f9;
+}
+
+
+.headerText
+{
+      color: #FFFFFF;
+    font-size: 1.3em;
+    /* float: left; */
+    font-weight: bold;
+    text-align: center;
+    line-height: 49px;
+    /* padding-left: 5%; */
+}
+
+.mainHeader
+{
+	width: 94%;
+    background-color: #000000;
+    display: block;
+    min-height: 53px;
+}
+
+.headerImage
+{
+	height: 53px;
+    float: left;
+    padding: 5px;
+}
+
+.totalSpend
+{
+	background: #F3F2F0;
+    width: 91%;
+    display: block;
+    height: 10%;
+    position: relative;
+}
+
+.totalHeading
+{
+	
+       display: block;
+    clear: both;
+    text-align: left;
+    padding-left: 8px;
+    /* padding-top: 5px; */
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.cashBackEarned
+{
+	    display: block;
+    position: relative;
+    padding-top: 2%;
+    padding-left: 8px;
+    width: 100%;
+    height: auto;
+}
+.totalSpendHead
+{
+	display: inline-block;
+}
+.cashBackLevel
+{
+    display: inline-block;
+    /* width: 32%; */
+       padding-left: 7%;
+ }
+ .totalEarned
+ {   
+           display: inline-block;
+        padding-left: 11%;
+ }
+ .cashBackValues
+ {
+ 	
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 1.3em;
+    vertical-align: middle;
+    text-align: center;
+   padding-left: 9px;
+ }  
+ 
+ .transactionsDateHeader
+ {
+ 	     display: block;
+    clear: both;
+    width: 94%;
+    text-align: left;
+    padding-top: 2px;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    background: #E6E5E1;
+ }  
+ .wrapper-contents-margin
+ {
+    margin-top: 0.3%;
+    margin-left: auto;
+    margin-right: auto;  
+  }
+  
+  tr td
+  {
+  	width:10%;
+  	text-align:left;
+  	word-wrap: break-word;
+	word-break: break-all;
+  }
+  tr th
+  {
+  	text-align:left;
+  	vertical-align: middle;
+	border-spacing: 0px;
+  }
+</style>
+</head>
+<body>
+<div class="wrapper">
+<div class="mainHeader  wrapper-contents-margin">
+	<div class="headerImage">
+	        	<img style="height: 77%;" src="C:\Users\nar8801\workspace_Java7\ProXtraAdmin_PROXTRA_DEV_TRUNK\WebContent\assets\images\layout\pro-xtra-logo.svg" alt="Home Depot ProXtra" />
+                  
+	</div>
+	<div class="headerText" style="">
+		<span>ProXtra Quarterly Cash Back Statement</span>
+	</div>
+</div>
+<div class="totalSpend  wrapper-contents-margin">
+	<div class="totalHeading">
+		<span style="font-size:1.1em;">
+			Totals - Jan 01 to Mar 31
+		</span>
+	</div>
+	<div class="cashBackEarned">
+		
+		<div class="totalSpendHead">
+			
+			<span style="font-size: 0.9em;"> Spend </span>
+			<span class="cashBackValues"> $5,123.00 </span>
+		</div>
+		
+		<div class="cashBackLevel">
+		<span style="font-size: 0.9em;"> Cash Back Level </span>
+			<span class="cashBackValues"> 1% </span>
+		
+		</div>
+		
+		<div class="totalEarned">
+			<span style="font-size: 0.9em;"> Cash Back Earned </span>
+			<span class="cashBackValues"> $51.23 </span>
+		
+		</div>
+	
+	</div>
+	
+</div>
+<div class="transactionsDateHeader  wrapper-contents-margin">
+<span style="font-size:1.3em;padding-left:5px;">Transactions Added Jan 01 to Mar 31</span>
+</div>
+<table class="table wrapper-contents-margin">
+<tr class="head">
+	<th style="width:10%">Sales Date</th>
+	<th style="width:10%">Added Date</th>
+	<th style="width:10%">Job Name</th>
+	<th style="width:10%">Receipt #</th>
+	<th style="width:10%">Pre Tax Amount</th>
+	<th style="width:9%">Total Amount</th>
+	<th style="width:10%">Store Name</th>
+	<th style="width:10%">Credit Cards / Accounts</th>
+	<th style="width:10%">Credit/Account Name</th>
+	<th style="width:10%">Order #</li>
+</tr>
+<tr>
+	<td>
+		
+		<div>01/03/2015</div>
+	</td>
+	<td>
+		
+		<div>01/03/2015</div>
+	</td>
+	<td>
+		
+		<div>Davis Deck</div>
+	</td>
+	<td>
+		
+		<div>58-3752</div>
+	</td>
+	<td>
+		
+		<div>$56.93</div>
+	</td>
+	<td>
+		
+		<div>$61.48</div>
+	</td>
+	<td>
+		
+		<div>#0159 - MIDTOWN</div>
+	</td>
+	<td style="width: 12%;">
+		
+		<div>VISA x- 1130</div>
+	</td>
+	<td>
+		
+		<div>Main Card</div>
+	</td>
+	<td>
+		<div>2144</div>
+	</td>
+</tr>
+<tr>
+	<td>
+		
+		<div>01/03/2015</div>
+	</td>
+	<td>
+		
+		<div>01/03/2015</div>
+	</td>
+	<td>
+		
+		<div>Davis Deck</div>
+	</td>
+	<td>
+		
+		<div>58-3752</div>
+	</td>
+	<td>
+		
+		<div>$56.93</div>
+	</td>
+	<td>
+		
+		<div>$61.48</div>
+	</td>
+	<td>
+		
+		<div>#0159 - MIDTOWN</div>
+	</td>
+	<td style="width: 12%;">
+		
+		<div>VISA x- 1130</div>
+	</td>
+	<td>
+		
+		<div>Main Card</div>
+	</td>
+	<td>
+		<div>2144</div>
+	</td>
+</tr>
+<tr>
+	<td>
+		
+		<div>01/03/2015</div>
+	</td>
+	<td>
+		
+		<div>01/03/2015</div>
+	</td>
+	<td>
+		
+		<div>Davis Deck</div>
+	</td>
+	<td>
+		
+		<div>58-3752</div>
+	</td>
+	<td>
+		
+		<div>$56.93</div>
+	</td>
+	<td>
+		
+		<div>$61.48</div>
+	</td>
+	<td>
+		
+		<div>#0159 - MIDTOWN</div>
+	</td>
+	<td style="width: 12%;">
+		
+		<div>VISA x- 1130</div>
+	</td>
+	<td>
+		
+		<div>Main Card</div>
+	</td>
+	<td>
+		<div>2144</div>
+	</td>
+</tr>
+<tr>
+	<td>
+		
+		<div>01/03/2015</div>
+	</td>
+	<td>
+		
+		<div>01/03/2015</div>
+	</td>
+	<td>
+		
+		<div>Davis Deck</div>
+	</td>
+	<td>
+		
+		<div>58-3752</div>
+	</td>
+	<td>
+		
+		<div>$56.93</div>
+	</td>
+	<td>
+		
+		<div>$61.48</div>
+	</td>
+	<td>
+		
+		<div>#0159 - MIDTOWN</div>
+	</td>
+	<td style="width: 12%;">
+		
+		<div>VISA x- 1130</div>
+	</td>
+	<td>
+		
+		<div>Main Card</div>
+	</td>
+	<td>
+		<div>2144</div>
+	</td>
+</tr>
+<tr>
+	<td>
+		
+		<div>01/03/2015</div>
+	</td>
+	<td>
+		
+		<div>01/03/2015</div>
+	</td>
+	<td>
+		
+		<div>Davis Deck</div>
+	</td>
+	<td>
+		
+		<div>58-3752</div>
+	</td>
+	<td>
+		
+		<div>$56.93</div>
+	</td>
+	<td>
+		
+		<div>$61.48</div>
+	</td>
+	<td>
+		
+		<div>#0159 - MIDTOWN</div>
+	</td>
+	<td style="width: 12%;">
+		
+		<div>VISA x- 1130</div>
+	</td>
+	<td>
+		
+		<div>Main Card</div>
+	</td>
+	<td>
+		<div>2144</div>
+	</td>
+</tr>
+<tr>
+	<td>
+		
+		<div>01/03/2015</div>
+	</td>
+	<td>
+		
+		<div>01/03/2015</div>
+	</td>
+	<td>
+		
+		<div>Davis Deck</div>
+	</td>
+	<td>
+		
+		<div>58-3752</div>
+	</td>
+	<td>
+		
+		<div>$56.93</div>
+	</td>
+	<td>
+		
+		<div>$61.48</div>
+	</td>
+	<td>
+		
+		<div>#0159 - MIDTOWN</div>
+	</td>
+	<td style="width: 12%;">
+		
+		<div>VISA x- 1130</div>
+	</td>
+	<td>
+		
+		<div>Main Card</div>
+	</td>
+	<td>
+		<div>2144</div>
+	</td>
+</tr>
+</table>
+
+<div class="totalSpend  wrapper-contents-margin">
+	<div class="totalHeading" style="padding-top:5px;">
+		<span style="font-size:1.1em;">
+			Totals - Jan 01 to Mar 31
+		</span>
+	</div>
+	<div class="cashBackEarned">
+		
+		<div class="totalSpendHead">
+			
+			<span style="font-size: 0.9em;"> Spend </span>
+			<span class="cashBackValues"> $5,123.00 </span>
+		</div>
+		
+		<div class="cashBackLevel">
+		<span style="font-size: 0.9em;"> Cash Back Level </span>
+			<span class="cashBackValues"> 1% </span>
+		
+		</div>
+		
+		<div class="totalEarned">
+			<span style="font-size: 0.9em;"> Cash Back Earned </span>
+			<span class="cashBackValues"> $51.23 </span>
+		
+		</div>
+	
+	</div>
+	
+</div>
+</div>
+</body>
+</html>
